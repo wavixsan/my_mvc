@@ -19,18 +19,9 @@ class BookController extends Controller
 
     public function actionIndex($request)
     {
-//        $this->model = $this->get('model')->model('book');
-//        $count = ceil($this->model->countBooks()/$this->count);
-//        if(isset($request->page)){
-//            if($request->page == 0 or $request->page > $count){return false;}
-//            $this->page = $request->page;
-//        }
-//        $buttons = new Pagination($this->page,$count);
-//
-//        $books = $this->model->pageBooks((($this->page-1)*$this->count),$this->count);
-////        var_dump($books);
-//        return $this->view("index.phtml",["books"=>$books,"buttons"=>$buttons->buttons]);
-        return $this->view("index.phtml");
+        $books = $this->get('model')->get('book')->adminAllBooks();
+
+        return $this->view("index.phtml",["books"=>$books]);
     }
 
     public function actionShow($params)

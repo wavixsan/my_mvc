@@ -39,6 +39,16 @@ class BookModel
         return null;
     }
 
+    public function adminAllBooks()
+    {
+        $arr = [];
+        $sth = $this->pdo->query("SELECT * FROM book");
+        while($res=$sth->fetch(\PDO::FETCH_OBJ)){
+            $arr[] = $res;
+        }
+        return $arr;
+    }
+
     public function countBooks()
     {
         $sth = $this->pdo->query("SELECT count(id) FROM book WHERE status = 1");
