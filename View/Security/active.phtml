@@ -1,0 +1,10 @@
+<h1>Активация</h1>
+
+<?php
+$message = $this->get('session')->message();
+if($message){
+    echo '<div class="text-center alert alert-danger" role="alert">'.$message.'</div>';
+}
+?>
+
+<a class="btn btn-primary" href="<?=$this->get('router')->getUrl('login')?>">Войти</a>

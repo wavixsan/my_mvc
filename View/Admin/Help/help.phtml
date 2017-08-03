@@ -1,0 +1,8 @@
+<h1>Help</h1>
+
+<?php foreach($contents as $res):?>
+    <p>
+        <a href="<?=$this->get("router")->getUrl("admin_help_show",["id"=>$res->id])?>"><?=$res->name?></a>
+        - <span><?=$res->title?></span>...
+    </p>
+<?php endforeach?>

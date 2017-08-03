@@ -1,0 +1,17 @@
+<div class="page-header">
+    <h2><?=$book->title?></h2>
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="<?=$this->get('router')->getUrl("home_")?>">Главная</a></li>
+    <li><a href="<?=$this->get('router')->getUrl("books")?>">Книги</a></li>
+    <li class="active"><?=$book->title?></li>
+</ol>
+
+
+<?php //var_dump($book);?>
+<div style="padding:0 5px; background: #fcc;">
+<!--    <h2>--><?//=$book->title?><!--</h2>-->
+    <b><?=$book->price?></b>
+    <p><?=$book->description?></p>
+</div>

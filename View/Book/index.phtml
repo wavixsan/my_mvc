@@ -1,0 +1,71 @@
+
+<div class="page-header">
+    <h1>Books</h1>
+</div>
+
+<ol class="breadcrumb">
+    <li><a href="<?=$this->get('router')->getUrl("home_")?>">Главная</a></li>
+    <li class="active">Книги</li>
+</ol>
+
+<div class="text-center">
+
+    <ul class="pagination">
+        <?foreach($buttons as $button):?>
+            <li <?php
+            if($button->active) : echo 'class="active"';
+            elseif($button->disabled) : echo 'class="disabled"';
+            else : echo '';
+            endif;
+            ?> >
+                <?php if(!$button->active and !$button->disabled) : ?>
+                    <a href="<?=$this->get('router')->getUrl("books_page",['page'=>$button->page])?>">
+                        <?=$button->text?>
+                    </a>
+                <?php else :?>
+                    <span><?=$button->text?></span>
+                <?php endif ?>
+            </li>
+        <?endforeach;?>
+    </ul>
+
+    <div class="row">
+        <?php foreach($books as $book):?>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail div400">
+                    <div class="img_size300x200">
+                        <img data-src="holder.js/300x200" alt="..." src="/img/small.jpg">
+                    </div>
+                    <div class="caption">
+                        <h3><?=$book->title?></h3>
+                        <p class="p_size40"><?=$book->description?></p>
+                        <p>
+                            <a href="<?=$this->get('router')->getUrl("book_show",['id'=>$book->id])?>" class="btn btn-primary" role="button">Show</a>
+                            <a href="#" class="btn btn-default" role="button">Add to cart</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach;?>
+    </div>
+
+    <ul class="pagination">
+        <?foreach($buttons as $button):?>
+            <li <?php
+            if($button->active) : echo 'class="active"';
+            elseif($button->disabled) : echo 'class="disabled"';
+            else : echo '';
+            endif;
+            ?> >
+                <?php if(!$button->active and !$button->disabled) : ?>
+                    <a href="<?=$this->get('router')->getUrl("books_page",['page'=>$button->page])?>">
+                        <?=$button->text?>
+                    </a>
+                <?php else :?>
+                    <span><?=$button->text?></span>
+                <?php endif ?>
+            </li>
+        <?endforeach;?>
+    </ul>
+</div><!-- .text-center -->
+

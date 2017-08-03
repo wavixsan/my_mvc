@@ -1,0 +1,30 @@
+<h2 class="sub-header">Helper
+    <a class="btn btn-primary" href="<?=$this->get('router')->getUrl('admin_help_add')?>">Добавить запись</a>
+</h2>
+<form class="table-responsive" method="post">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Setting</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php foreach($contents as $item):?>
+            <tr>
+                <td><?=$item->id?></td>
+                <td><a href="<?=$this->get("router")->getUrl("admin_help_show",["id"=>$item->id])?>"><?=$item->name?></a></td>
+                <td><?=$item->title?></td>
+                <td>
+                    <a href="<?=$this->get('router')->getUrl("admin_help_edit",["id"=>$item->id])?>" class="btn btn-success btn-sm">Edit</a>
+                    <button name="delete" value="<?=$item->id?>" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        <?php endforeach?>
+
+        </tbody>
+    </table>
+</form>

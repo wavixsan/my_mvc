@@ -1,0 +1,9 @@
+<h1>Имена</h1>
+
+<ul>
+    <?foreach($names as $k=>$v):?>
+        <li><a href="<?=$this->get('router')->getUrl("name_page",['id'=>$k])?>"><?=$v?></a></li>
+    <?endforeach?>
+</ul>
+
+

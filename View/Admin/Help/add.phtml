@@ -1,0 +1,41 @@
+<h2>Helper add</h2>
+<style>
+    #table_ td{
+        padding:4px;
+    }
+</style>
+<form method="post">
+    <table id="table_">
+        <tr>
+            <td>
+                <label for="name" >Name</label>
+            </td>
+            <td>
+                <input name="name" id="name_" class="form-control" placeholder="Name" required autofocus>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="title_" >Title</label>
+            </td>
+            <td>
+                <input name="title" id="title_" class="form-control" placeholder="Title" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label for="content_" >Content</label>
+            </td>
+            <td>
+                <textarea cols="80" rows="15" name="content" id="content_" class="form-control" placeholder="Content" required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-right">
+                <button class="btn btn-primary">Отправить</button>
+                <a class="btn btn-default" href="<?=$this->get('router')->getUrl('admin_help')?>">Отмена</a>
+            </td>
+        </tr>
+    </table>
+</form>
