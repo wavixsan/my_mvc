@@ -1,0 +1,75 @@
+<h2>Helper add</h2>
+<style>
+    #table_ td{
+        padding:4px;
+    }
+</style>
+<form method="post">
+    <table id="table_">
+        <tr>
+            <td>
+                <label for="title_" >Title</label>
+            </td>
+            <td>
+                <input name="title" id="title_" class="form-control" placeholder="Title" required autofocus>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="text-align:center">
+                <label for="description_" style="width:10px; text-align:left">D e s c r i p t i o n</label>
+            </td>
+            <td>
+                <textarea cols="80" rows="15" name="description" id="description_" class="form-control" placeholder="Description" required></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="price_">Price</label>
+                        </td>
+                        <td>
+                            <input style="width:100px" name="price" id="price_" class="form-control" placeholder="0.00" required>
+                        </td>
+
+                        <td style="width:20px"></td>
+
+                        <td>
+                            <label for="status_" >Status</label>
+                        </td>
+                        <td>
+                            <select name="status" id="status_" class="form-control">
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </td>
+
+                        <td style="width:20px"></td>
+
+                        <td>
+                            <label for="style_" >Style</label>
+                        </td>
+                        <td>
+                            <select name="style" id="style_" class="form-control">
+                                <?php foreach($styles as $style):?>
+                                    <option value="<?=$style->id?>"><?=$style->title?></option>
+                                <?php endforeach?>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="text-right">
+                <button class="btn btn-primary">Отправить</button>
+                <a class="btn btn-default" href="<?=$this->get('router')->getUrl('admin_books')?>">Отмена</a>
+            </td>
+        </tr>
+    </table>
+</form>

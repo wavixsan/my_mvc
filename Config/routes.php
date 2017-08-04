@@ -24,7 +24,10 @@ return array(
     "admin_"=>["admin\\default","PANEL","/admin.html"],
     "admin_logout" => ["admin\\security","logout","/admin_logout.html"],
 
-    "admin_books"=>["admin\\book","index","/admin-books.html"],
+    "admin_books"=>["admin\\book","index","/admin/books"],
+    "admin_book_add"=>['admin\\book','add',"/admin/book/add"],
+    "admin_book_delete"=>["admin\\book","delete","/admin/book/delete/{id}",['id'=>'[0-9]+']],
+    "admin_book_edit"=>["admin\\book","edit","/admin/book/edit/{id}",['id'=>'[0-9]+']],
 
     "admin_help" => ['admin\\help',"index",'/admin-help.html'],
     "admin_help_show"=>['admin\\help',"show","/admin-help-show-{id}.html",["id"=>"[0-9]+"]],
