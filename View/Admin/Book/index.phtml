@@ -9,8 +9,18 @@
                     Id<?php if($sorting->sort_id):?><span class="caret"></span><?php endif?>
                 </a>
             </th>
-            <th>Title</th>
-            <th style="width:100px">Price</th>
+
+            <th>
+                <a <?=($sorting->sort_title==1?'class="dropup"':"")?> href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'title','param'=>$sorting->sort_title+1])?>" style="color:#000;">
+                    Title<?php if($sorting->sort_title):?><span class="caret"></span><?php endif?>
+                </a>
+            </th>
+<!--            <th>Title</th>-->
+            <th style="width:100px;">
+                <a <?=($sorting->sort_price==1?'class="dropup"':"")?> href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'price','param'=>$sorting->sort_price+1])?>" style="color:#000;">
+                    Price<?php if($sorting->sort_price):?><span class="caret"></span><?php endif?>
+                </a>
+            </th>
             <th style="width:100px">Style</th>
             <th style="width:50px">Status</th>
             <th style="width:100px">Setting</th>

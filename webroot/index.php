@@ -11,11 +11,13 @@ require_once(ROOT."vendor".DS.'autoload.php');//vendor/
 
 require_once(ROOT."Library".DS."autoload.php");
 
-//Error::$fatalErrorMonitor = false;
+Error::$fatalErrorMonitor = false;
 
 echo (new Core())->core();
 
 //Error::status();
+
+//${"sort_".$request->get('sort')} ---
 
 
 //helper - добавить контент

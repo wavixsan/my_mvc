@@ -16,18 +16,22 @@ class BookController extends Controller
 {
     public function actionIndex($request)
     {
+        $sort_id = $sort_title = $sort_price = 0;
         $session = $this->get('session');
-        $sort_id = $session->get('sort_id');
+        $sorting = unserialize($session->get('sorting'));
 
         if($request->get('sort') and $request->get('param')){
-            ${"sort_".$request->get('sort')} = $request->get('param');
+            $sorting['sort'] = $request->get('sort');
+            $sorting['param'] = $request->get('param');
+            switch($sorting['param']){case '1':case '2':break; default: $sorting['param']=0;}
+            $session->set('sorting',serialize($sorting));
         }
-        switch($sort_id){case '1':case '2':break; default: $sort_id=0;}
-        $books = $this->get('model')->get('book')->adminAllBooks($sort_id);
 
-        $session->set('sort_id',$sort_id);
+        if($sorting) ${"sort_".$sorting['sort']} = $sorting['param'];
 
-        $sorting = new Vars(["sort_id"=>$sort_id]);
+        $books = $this->get('model')->get('book')->adminAllBooks($sorting);
+
+        $sorting = new Vars(compact('sort_id','sort_price','sort_title'));
 
         return $this->view("index.phtml",compact('books','sorting'));
     }
