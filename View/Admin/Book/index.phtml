@@ -1,14 +1,19 @@
 <h2 class="sub-header">Books <a href="<?=$this->get('router')->getUrl("admin_book_add")?>" class="btn btn-primary">Добавить</a></h2>
+
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>Id</th>
+            <th style="width:50px;">
+                <a <?=($sorting->sort_id==1?'class="dropup"':"")?> href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'id','param'=>$sorting->sort_id+1])?>" style="color:#000;">
+                    Id<?php if($sorting->sort_id):?><span class="caret"></span><?php endif?>
+                </a>
+            </th>
             <th>Title</th>
-            <th>Price</th>
-            <th>Style</th>
-            <th>Status</th>
-            <th>Setting</th>
+            <th style="width:100px">Price</th>
+            <th style="width:100px">Style</th>
+            <th style="width:50px">Status</th>
+            <th style="width:100px">Setting</th>
         </tr>
         </thead>
         <tbody>
@@ -16,10 +21,10 @@
             <tr>
                 <td><?=$book->id?></td>
                 <td><?=$book->title?></td>
-                <td style="width:100px"><?=$book->price?></td>
-                <td style="width:100px"><?=$book->style?></td>
-                <td style="width:50px"><?=($book->status)?"Yes":"No"?></td>
-                <td style="width:100px">
+                <td><?=$book->price?></td>
+                <td><?=$book->style?></td>
+                <td><?=($book->status)?"Yes":"No"?></td>
+                <td>
                     <a href="<?=$this->get('router')->getUrl('admin_book_edit',["id"=>$book->id])?>" class="btn btn-success">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>

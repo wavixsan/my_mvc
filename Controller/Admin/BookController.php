@@ -10,27 +10,26 @@ namespace Controller\Admin;
 
 use Library\Controller;
 use Library\Pagination;
+use Library\Vars;
 
 class BookController extends Controller
 {
-    private $model;
-    private $count = 6;
-    private $page=1;
-
     public function actionIndex($request)
     {
-        $books = $this->get('model')->get('book')->adminAllBooks();
+        $session = $this->get('session');
+        $sort_id = $session->get('sort_id');
 
-        return $this->view("index.phtml",["books"=>$books]);
-    }
+        if($request->get('sort') and $request->get('param')){
+            ${"sort_".$request->get('sort')} = $request->get('param');
+        }
+        switch($sort_id){case '1':case '2':break; default: $sort_id=0;}
+        $books = $this->get('model')->get('book')->adminAllBooks($sort_id);
 
-    public function actionShow($params)
-    {
-        return false;
-//        $this->model = $this->get('model')->model('book');
-//        $book = $this->model->showBook($params->id);
-////        var_dump($book);
-//        return $this->view("book.phtml",["book"=>$book]);
+        $session->set('sort_id',$sort_id);
+
+        $sorting = new Vars(["sort_id"=>$sort_id]);
+
+        return $this->view("index.phtml",compact('books','sorting'));
     }
 
     public function actionAdd($request)
