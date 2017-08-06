@@ -7,7 +7,9 @@ use Library\Core;
 define('DS',DIRECTORY_SEPARATOR);
 define("ROOT",dirname(__DIR__).DS);
 
-require_once(ROOT."vendor".DS.'autoload.php');//vendor/
+if(file_exists(ROOT."vendor".DS.'autoload.php')){
+    require_once(ROOT."vendor".DS.'autoload.php');
+}
 
 require_once(ROOT."Library".DS."autoload.php");
 
