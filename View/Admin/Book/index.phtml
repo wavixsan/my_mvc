@@ -1,5 +1,10 @@
-<h2 class="sub-header">Books <a href="<?=$this->get('router')->getUrl("admin_book_add")?>" class="btn btn-primary">Добавить</a></h2>
-<div class="table-responsive">
+<h2 class="sub-header">
+    Books
+    <a href="<?=$this->get('router')->getUrl("admin_book_add")?>" class="btn btn-primary">Добавить книгу</a>
+<!--    <a class="btn btn-primary">Style</a>-->
+</h2>
+
+<div class="table-responsive" style="min-height:300px;">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -19,7 +24,22 @@
                     Price<?php if($sorting->sort_price):?><span class="caret"></span><?php endif?>
                 </a>
             </th>
-            <th style="width:100px">Style</th>
+
+            <th class="dropdown" style="width:100px">
+                <a style="color:#000;" data-toggle="dropdown">
+                    Style<span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <?php foreach($styles as $style):?>
+                        <?php if($sorting->sort_style==$style->id):?>
+                            <li><a style="color:#777; background:#f7f7f7;"><?=$style->title?></a></li>
+                        <?php else:?>
+                            <li><a href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'style','param'=>$style->id])?>"><?=$style->title?></a></li>
+                        <?php endif?>
+                    <?php endforeach?>
+                </ul>
+            </th>
+
             <th style="width:70px;">
                 <a href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'status','param'=>$sorting->sort_status+1])?>" style="color:#000;">
                     Status<?php if($sorting->sort_status==1):?><small>+</small><?php elseif($sorting->sort_status==2):?>-<?php endif?>

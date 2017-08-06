@@ -16,17 +16,22 @@ class BookController extends Controller
 {
     public function actionIndex($request)
     {
-        $sort_id = $sort_title = $sort_price = 0;
         $session = $this->get('session');
+        $model = $this->get('model')->get('book');
+
+        $sort_id = $sort_title = $sort_price = 0;
         $sorting = unserialize($session->get('admin_book_sorting'));
         $sort_status = $session->get('admin_book_status');
-
+        $sort_style = $session->get('admin_book_style')?$session->get('admin_book_style'):'0';
         $sort = $request->get('sort');
-        $param = $request->get('param');
+        $param = $request->get('param')?$request->get('param'):"0";
 
-        if($sort and $param){
+        if($sort){
             if($sort == 'status'){
                 switch($param){case '1':case '2':break; default: $param=0;}
+                $session->set("admin_book_$sort",$param);
+                ${'sort_'.$sort} = $param;
+            }elseif($sort == 'style' and ($model->testStyle($param) or $param == "0")){
                 $session->set("admin_book_$sort",$param);
                 ${'sort_'.$sort} = $param;
             }else{
@@ -39,11 +44,13 @@ class BookController extends Controller
 
         if($sorting) ${"sort_".$sorting['sort']} = $sorting['param'];
 
-        $books = $this->get('model')->get('book')->adminAllBooks($sorting,$sort_status);
+        $books = $model->adminAllBooks($sorting,$sort_style,$sort_status);
+        $styles[0] = new Vars(['id'=>'0','title'=>'---']);
+        $styles += $model->allStyles();
 
         $sorting = new Vars(compact('sort_id','sort_price','sort_title','sort_style','sort_status'));
 
-        return $this->view("index.phtml",compact('books','sorting'));
+        return $this->view("index.phtml",compact('books','sorting','styles'));
     }
 
     public function actionAdd($request)

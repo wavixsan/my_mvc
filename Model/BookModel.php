@@ -39,9 +39,10 @@ class BookModel
         return null;
     }
 
-    public function adminAllBooks($sorting,$status)
+    public function adminAllBooks($sorting,$style,$status)
     {
         $group = $where = ''; $arr = [];
+        if($style) $where .=" AND book.style_id=$style";
         if($status){
             if($status == 1) $where .= " AND status=1";
             if($status == 2) $where .= " AND status=0";
@@ -93,6 +94,16 @@ class BookModel
             $styles[] =  $res;
         }
         return $styles;
+    }
+
+    public function testStyle($id)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM style WHERE id=:id");
+        $sth->execute(['id'=>$id]);
+        while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
+            return true;
+        }
+        return false;
     }
 
     public function countBooks()
