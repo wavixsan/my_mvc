@@ -1,5 +1,4 @@
 <h2 class="sub-header">Books <a href="<?=$this->get('router')->getUrl("admin_book_add")?>" class="btn btn-primary">Добавить</a></h2>
-
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -15,14 +14,18 @@
                     Title<?php if($sorting->sort_title):?><span class="caret"></span><?php endif?>
                 </a>
             </th>
-<!--            <th>Title</th>-->
-            <th style="width:100px;">
+            <th style="width:80px;">
                 <a <?=($sorting->sort_price==1?'class="dropup"':"")?> href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'price','param'=>$sorting->sort_price+1])?>" style="color:#000;">
                     Price<?php if($sorting->sort_price):?><span class="caret"></span><?php endif?>
                 </a>
             </th>
             <th style="width:100px">Style</th>
-            <th style="width:50px">Status</th>
+            <th style="width:70px;">
+                <a href="<?=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'status','param'=>$sorting->sort_status+1])?>" style="color:#000;">
+                    Status<?php if($sorting->sort_status==1):?><small>+</small><?php elseif($sorting->sort_status==2):?>-<?php endif?>
+                </a>
+            </th>
+
             <th style="width:100px">Setting</th>
         </tr>
         </thead>
@@ -35,10 +38,10 @@
                 <td><?=$book->style?></td>
                 <td><?=($book->status)?"Yes":"No"?></td>
                 <td>
-                    <a href="<?=$this->get('router')->getUrl('admin_book_edit',["id"=>$book->id])?>" class="btn btn-success">
+                    <a href="<?=$this->get('router')->getUrl('admin_book_edit',["id"=>$book->id])?>" class="btn btn-success btn-sm">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
-                    <a href="<?=$this->get('router')->getUrl('admin_book_delete',["id"=>$book->id])?>" class="btn btn-danger">
+                    <a href="<?=$this->get('router')->getUrl('admin_book_delete',["id"=>$book->id])?>" class="btn btn-danger btn-sm">
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
                 </td>

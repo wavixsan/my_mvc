@@ -39,15 +39,19 @@ class BookModel
         return null;
     }
 
-    public function adminAllBooks($sorting)
+    public function adminAllBooks($sorting,$status)
     {
-        $group=''; $arr = [];
+        $group = $where = ''; $arr = [];
+        if($status){
+            if($status == 1) $where .= " AND status=1";
+            if($status == 2) $where .= " AND status=0";
+        }
         if($sorting and $sorting['param']){
-            $group = "GROUP BY ";
+            $group = " GROUP BY ";
             if($sorting['param']){$group.= $sorting['sort'];}
             if($sorting['param']==2){$group.=" DESC";}
         }
-        $sth = $this->pdo->query("SELECT book.id,book.title,book.price,book.description,book.status,style.title AS style FROM book,style WHERE book.style_id=style.id $group");
+        $sth = $this->pdo->query("SELECT book.id,book.title,book.price,book.status,style.title AS style FROM book,style WHERE book.style_id=style.id{$where}{$group}");
         while($res=$sth->fetch(\PDO::FETCH_OBJ)){
             $arr[] = $res;
         }
