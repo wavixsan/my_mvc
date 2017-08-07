@@ -1,0 +1,26 @@
+<h2>Style edit</h2>
+<style>
+    #table_ td{
+        padding:4px;
+    }
+</style>
+<form method="post">
+    <table id="table_">
+        <tr>
+            <td>
+                <label for="title_" >Title</label>
+            </td>
+            <td>
+                <input value="<?=$style->title?>" name="title" id="title_" class="form-control" placeholder="Title" required autofocus>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="text-right">
+                <button class="btn btn-primary">Отправить</button>
+                <a class="btn btn-default" href="<?=$this->get('router')->getUrl('admin_book_style')?>">Отмена</a>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="id" value="<?=$style->id?>">
+</form>

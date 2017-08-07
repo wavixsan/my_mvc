@@ -39,9 +39,10 @@ class BookModel
         return null;
     }
 
-    public function adminAllBooks($sorting,$status)
+    public function adminAllBooks($sorting,$style,$status)
     {
         $group = $where = ''; $arr = [];
+        if($style) $where .=" AND book.style_id=$style";
         if($status){
             if($status == 1) $where .= " AND status=1";
             if($status == 2) $where .= " AND status=0";
@@ -93,6 +94,52 @@ class BookModel
             $styles[] =  $res;
         }
         return $styles;
+    }
+
+    public function styleOptions($option,$param,$return=false)
+    {
+        switch($option){
+            case 'book_style_update':
+                $sql = "UPDATE book SET style_id=1 WHERE style_id=:id";
+                $array = ['id'=>$param];
+                break;
+                break;
+            case 'add':
+                $sql = "INSERT INTO style VALUES (null,:title)";
+                $array = ['title'=>$param];
+                break;
+            case 'edit':
+                $sql = "UPDATE style SET title=:title WHERE id=:id";
+                $array = $param;
+                break;
+            case 'delete':
+                $sql = "DELETE FROM style WHERE id=:id";
+                $array = ['id'=>$param];
+                break;
+            case 'show':
+                $sql = "SELECT * FROM style WHERE id=:id";
+                $array = ['id'=>$param]; $return=true;
+                break;
+            default: return false;
+        }
+        $sth = $this->pdo->prepare($sql);
+        $sth->execute($array);
+        if($return){
+            while($res = $sth->fetch(\PDO::FETCH_OBJ)){
+                return $res;
+            }
+        }
+        return false;
+    }
+
+    public function testStyle($id)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM style WHERE id=:id");
+        $sth->execute(['id'=>$id]);
+        while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
+            return true;
+        }
+        return false;
     }
 
     public function countBooks()
