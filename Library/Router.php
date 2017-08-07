@@ -77,12 +77,15 @@ class Router
                     $active=true;
                 }else{
                     if(is_array($params) and $params){
+                        $p = false;
                         foreach($params as $k){
                             if(isset($this->routes[$k]) and $this->routes[$k]->active){
                                 $active = true; break;
                             }
+                            if($k===true) $p = true;
                         }
-                    }else if($p===true){
+                    }
+                    if($p===true){
                         foreach($this->routes as $route){
                             if($route->active and $route->controller==$this->routes[$key]->controller){
                                 $active = true; break;

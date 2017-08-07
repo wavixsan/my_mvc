@@ -51,7 +51,7 @@
                 <li><a href="#">Profile</a></li>
 <!--                <li><a href="--><?//=$this->get('router')->getUrl("admin_help")?><!--">Help</a></li>-->
 <!--                <li><a href="--><?//=$this->get('router')->getUrl('admin_logout')?><!--">Выйти</a></li>-->
-                <?php foreach($this->get('router')->navBar(["Help"=>['admin_help','admin_show'],'Выйти'=>'admin_logout']) as $key):?>
+                <?php foreach($this->get('router')->navBar(["Help"=>['admin_help','admin_help_show'],'Выйти'=>'admin_logout']) as $key):?>
                     <li <?=($key->active?'class="active"':"")?> ><a href="<?=$key->url?>"><?=$key->name?></a></li>
                 <?php endforeach?>
             </ul>
