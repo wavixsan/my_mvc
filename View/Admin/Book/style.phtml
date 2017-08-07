@@ -1,0 +1,47 @@
+<h2 class="sub-header">
+    Style
+    <a href="<?=$this->get('router')->getUrl("admin_book_style_option",["option"=>'add',"value"=>0])?>" class="btn btn-primary">Добавить стиль</a>
+    <a href="<?=$this->get('router')->getUrl('admin_books')?>" class="btn btn-primary">Books</a>
+</h2>
+
+<div class="table-responsive" style="min-height:300px;">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width:50px;">
+<!--                <a --><?//=($sorting->sort_id==1?'class="dropup"':"")?><!-- href="--><?//=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'id','param'=>$sorting->sort_id+1])?><!--" style="color:#000;">-->
+<!--                    Id--><?php //if($sorting->sort_id):?><!--<span class="caret"></span>--><?php //endif?>
+<!--                </a>-->
+                Id
+            </th>
+
+            <th>
+<!--                <a --><?//=($sorting->sort_title==1?'class="dropup"':"")?><!-- href="--><?//=$this->get('router')->getUrl('admin_books_sorting',['sort'=>'title','param'=>$sorting->sort_title+1])?><!--" style="color:#000;">-->
+<!--                    Title--><?php //if($sorting->sort_title):?><!--<span class="caret"></span>--><?php //endif?>
+<!--                </a>-->
+                Title
+            </th>
+
+            <th style="width:100px">Setting</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($styles as $style):?>
+            <tr>
+                <td><?=$style->id?></td>
+                <td><?=$style->title?></td>
+                <td>
+                    <a href="<?=$this->get('router')->getUrl('admin_book_style_option',["option"=>"edit","value"=>$style->id])?>" class="btn btn-success btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <?php if($style->id!=1):?>
+                        <a href="<?=$this->get('router')->getUrl('admin_book_style_option',["option"=>"delete","value"=>$style->id])?>" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    <?php endif?>
+                </td>
+            </tr>
+        <?php endforeach?>
+        </tbody>
+    </table>
+</div>

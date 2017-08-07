@@ -1,10 +1,10 @@
 <h2 class="sub-header">
     Books
     <a href="<?=$this->get('router')->getUrl("admin_book_add")?>" class="btn btn-primary">Добавить книгу</a>
-<!--    <a class="btn btn-primary">Style</a>-->
+    <a href="<?=$this->get('router')->getUrl('admin_book_style')?>" class="btn btn-primary">Style</a>
 </h2>
 
-<div class="table-responsive" style="min-height:300px;">
+<div class="table-responsive" style="min-height:400px;">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -30,6 +30,7 @@
                     Style<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a <?=($sorting->sort_style==0?'style="color:#777; background:#f7f7f7;"':'href="'.$this->get('router')->getUrl('admin_books_sorting',['sort'=>'style','param'=>0]).'"')?> >---</a></li>
                     <?php foreach($styles as $style):?>
                         <?php if($sorting->sort_style==$style->id):?>
                             <li><a style="color:#777; background:#f7f7f7;"><?=$style->title?></a></li>
