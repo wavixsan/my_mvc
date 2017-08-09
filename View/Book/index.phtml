@@ -41,7 +41,7 @@
                         <p class="p_size40"><?=$book->description?></p>
                         <p>
                             <a href="<?=$this->get('router')->getUrl("book_show",['id'=>$book->id])?>" class="btn btn-primary" role="button">Show</a>
-                            <a href="#" class="btn btn-default" role="button">Add to cart</a>
+                            <a href="<?=$this->get('router')->getUrl('cart_add_book',['id'=>$book->id])?>" class="btn btn-default" role="button">Add to cart</a>
                         </p>
                     </div>
                 </div>

@@ -21,6 +21,7 @@ class Core
     {
         $this->container = new Container();
         $this->container->set('session',(new Session())->start());
+        $this->container->set('cookie',new Cookie);
         $this->container->set('config',new Config);
         $this->container->set('request',new Request());
         $this->container->set('router',new Router($this->container));

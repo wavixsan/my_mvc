@@ -20,8 +20,6 @@ echo (new Core())->core();
 //Error::status();
 
 
-//helper - добавить контент
-
 //доделать регистрацию
 
 

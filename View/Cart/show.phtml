@@ -1,0 +1,28 @@
+<h1>Cart</h1>
+<?php $cost=0;?>
+<div class="table-responsive" style="min-height:400px;">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Count</th>
+            <th style="width:100px">Setting</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($items as $item):?>
+            <?php $cost += $item->price;?>
+            <tr>
+                <td><?=$item->id?></td>
+                <td><?=$item->title?></td>
+                <td><?=$item->price?></td>
+                <td><?=$item->count?></td>
+                <td><?=$item->status?></td>
+            </tr>
+        <?php endforeach?>
+        </tbody>
+    </table>
+    Cost : <?=$cost?>
+</div>

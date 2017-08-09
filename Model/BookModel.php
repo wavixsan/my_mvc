@@ -9,7 +9,23 @@ class BookModel
 {
     use TraitPDO;
 
-    public function allBooks($offset,$count)
+    public function bookId($ids)
+    {
+        $return = $count = $arr = [];
+        foreach($ids as $k=>$v){
+            $count[] = "?";
+            $arr[] = $k;
+        }
+        $count = implode(', ',$count);
+        $sth = $this->pdo->prepare("SELECT id,title,price,status FROM book WHERE id IN ($count)");
+        $sth->execute($arr);
+        while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
+            $return[] = (new Vars($res))->set('count',$ids[$res['id']]);
+        }
+        return $return;
+    }
+
+    public function allBooks()
     {
         $array = [];
         $sth = $this->pdo->query("SELECT * FROM book WHERE status = 1");

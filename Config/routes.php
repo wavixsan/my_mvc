@@ -7,6 +7,9 @@ return array(
     "books_page"=>["book","index","/books-page_{page}.html",["page"=>"[0-9]+"]],
     "book_show"=>["book","show","/book-{id}.html",["id"=>"[0-9]+"]],
 
+    "cart"=>['cart','show','/cart'],
+    "cart_add_book"=>['cart','addBook','/cart-add-book-{id}/',['id'=>'[0-9]+']],
+
     "names_list"=>["name","index","/names.html"],
     "name_page"=>["name","name","/name-{id}.html",["id"=>"[0-9]+"]],
 
