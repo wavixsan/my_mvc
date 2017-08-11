@@ -6,9 +6,14 @@ class Controller
 {
     private $container;
 
-    public function setContainer($container)
+    public function setContainer($container,$p=false)
     {
         $this->container = $container;
+        if($p){
+            foreach($container->all() as $k=>$v){
+                $this->$k = $v;
+            }
+        }
         return $this;
     }
 

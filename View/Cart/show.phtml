@@ -6,23 +6,39 @@
         <tr>
             <th>Id</th>
             <th>Title</th>
-            <th>Price</th>
-            <th>Count</th>
-            <th style="width:100px">Setting</th>
+            <th style="width:100px">Status</th>
+            <th style="width:50px;">Цена</th>
+            <th style="width:90px">Кол-во</th>
+            <th style="width:50px;">Сумма</th>
+            <th style="width:10px"> </th>
         </tr>
         </thead>
         <tbody>
         <?php foreach($items as $item):?>
-            <?php $cost += $item->price;?>
+            <?php $cost += ($item->price * $item->count);?>
             <tr>
                 <td><?=$item->id?></td>
-                <td><?=$item->title?></td>
-                <td><?=$item->price?></td>
-                <td><?=$item->count?></td>
-                <td><?=$item->status?></td>
+                <td><a><?=$item->title?></a></td>
+                <td><?=($item->status)?'yes':'no'?></td>
+                <td><b><?=$item->price?></b></td>
+                <td>
+                    <a href="<?=$this->get('router')->getUrl('cart_options',['id'=>$item->id,'option'=>'minus'])?>" class="btn btn-xs">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </a>
+                    <b><?=$item->count?></b>
+                    <a href="<?=$this->get('router')->getUrl('cart_options',['id'=>$item->id,'option'=>'plus'])?>" class="btn btn-xs">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                </td>
+                <td><b><?=($item->price * $item->count)?></b></td>
+                <td>
+                    <a href="<?=$this->get('router')->getUrl('cart_options',['id'=>$item->id,'option'=>'delete'])?>" class="btn btn-xs">
+                        <span class="glyphicon glyphicon-remove" style="color:red;"></span>
+                    </a>
+                </td>
             </tr>
         <?php endforeach?>
         </tbody>
     </table>
-    Cost : <?=$cost?>
+    <h3 class="text-right">Сумма : <b><?=$cost?></b></h3>
 </div>

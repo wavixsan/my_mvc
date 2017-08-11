@@ -13,29 +13,28 @@ use Library\Pagination;
 
 class BookController extends Controller
 {
-    private $model;
     private $count = 6;
     private $page=1;
 
     public function actionIndex($request)
     {
-        $this->model = $this->get('model')->get('book');
-        $count = ceil($this->model->countBooks()/$this->count);
+        $model = $this->get('model')->get('book');
+        $count = ceil($model->countBooks()/$this->count);
         if(isset($request->page)){
             if($request->page == 0 or $request->page > $count){return false;}
             $this->page = $request->page;
         }
         $buttons = new Pagination($this->page,$count);
 
-        $books = $this->model->pageBooks((($this->page-1)*$this->count),$this->count);
+        $books = $model->pageBooks((($this->page-1)*$this->count),$this->count);
 //        var_dump($books);
         return $this->view("index.phtml",["books"=>$books,"buttons"=>$buttons->buttons]);
     }
 
     public function actionShow($params)
     {
-        $this->model = $this->get('model')->get('book');
-        $book = $this->model->showBook($params->id);
+        $model = $this->get('model')->get('book');
+        $book = $model->showBook($params->id);
 //        var_dump($book);
         return $this->view("book.phtml",["book"=>$book]);
     }

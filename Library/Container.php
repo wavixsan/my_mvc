@@ -23,4 +23,9 @@ class Container
     public function set($key,$value){
         $this->container[$key] = $value;
     }
+
+    public function all()
+    {
+        return $this->container;
+    }
 }

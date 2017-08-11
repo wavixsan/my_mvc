@@ -13,8 +13,6 @@ class Core
     private $container;
     private $controller;
     private $action;
-    private $errorController;
-    private $errorAction;
     private $params;
 
     public function core()
@@ -25,9 +23,10 @@ class Core
         $this->container->set('config',new Config);
         $this->container->set('request',new Request());
         $this->container->set('router',new Router($this->container));
-        $this->container->set('model',(new Model())->setPdo((new Connect($this->container))->getPdo()));
+        $this->container->set('model',(new Model())->setPdo((new Connect($this->container->get('config')))->getPdo()));
+        $this->container->set('cart',new Cart($this->container->get('cookie')));
 
-        $config = get_object_vars($this->container->get('config')->get(['errorController','errorAction']));
+        $config = get_object_vars($this->container->get('config')->get(['errorController','errorAction','containerPublic']));
         foreach($config as $k=>$v){$this->$k=ucfirst($v);}
 
         $route = $this->container->get('router')->route();
@@ -60,7 +59,7 @@ class Core
         if(!method_exists($class,$method)){
             Error::fatal_error("Core: Нет экшена ('{$this->action}') в контроллере ('{$this->controller}')");
         }
-        $controller = (new $class)->setContainer($this->container);
+        $controller = (new $class)->setContainer($this->container,$this->containerPublic);
         return $controller->$method($this->params);
     }
 

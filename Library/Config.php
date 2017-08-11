@@ -13,6 +13,7 @@ class Config
     private $errorController = 'default';
     private $errorAction = '404';
     private $layout = 'layout.php';
+    private $containerPublic = false;
 
     public function get($key=null){
         if($key==null){

@@ -9,6 +9,7 @@ return array(
 
     "cart"=>['cart','show','/cart'],
     "cart_add_book"=>['cart','addBook','/cart-add-book-{id}/',['id'=>'[0-9]+']],
+    "cart_options"=>['cart','options','/cart-book-options-{option}-{id}/',['option'=>'minus|plus|delete','id'=>'[0-9]+']],
 
     "names_list"=>["name","index","/names.html"],
     "name_page"=>["name","name","/name-{id}.html",["id"=>"[0-9]+"]],
