@@ -13,11 +13,14 @@ class Cart
 {
     private $cookie;
     private $cart;
+    private $name='cart';
 
-    public function __construct($cookie)
+    public function __construct($cookie,$config)
     {
+        $name = $config->get('cartName');
+        if($name) $this->name = $name;
         $this->cookie = $cookie;
-        $this->cart = unserialize($cookie->get('cart200'));
+        $this->cart = unserialize($cookie->get($this->name));
         if(!$this->cart){$this->cart = [];}
     }
 
@@ -28,7 +31,7 @@ class Cart
 
     public function save()
     {
-        $this->cookie->set('cart200',serialize($this->cart));
+        $this->cookie->set($this->name,serialize($this->cart));
     }
 
     public function add($id,$p=false)

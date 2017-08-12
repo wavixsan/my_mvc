@@ -4,4 +4,5 @@ return array(
     "errorAction"=>"error",
     "layout" => 'layout.phtml',
     'containerPublic' => true,
+    'cartName'=>'cart200',
 );

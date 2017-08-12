@@ -24,7 +24,7 @@ class Core
         $this->container->set('request',new Request());
         $this->container->set('router',new Router($this->container));
         $this->container->set('model',(new Model())->setPdo((new Connect($this->container->get('config')))->getPdo()));
-        $this->container->set('cart',new Cart($this->container->get('cookie')));
+        $this->container->set('cart',new Cart($this->container->get('cookie'),$this->container->get('config')));
 
         $config = get_object_vars($this->container->get('config')->get(['errorController','errorAction','containerPublic']));
         foreach($config as $k=>$v){$this->$k=ucfirst($v);}
