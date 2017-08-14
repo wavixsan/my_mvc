@@ -21,10 +21,17 @@ class AnalyzerModel
         $sth->execute(compact('name','proteins','fats','carbohydrates','calories'));
     }
 
+    public function test($name)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM analyzer WHERE name = :name");
+        $sth->execute(compact('name'));
+        return (bool) $sth->fetch(\PDO::FETCH_ASSOC);
+    }
+
     public function get($name)
     {
         $sth = $this->pdo->prepare("SELECT * FROM analyzer WHERE name = :name");
-        $sth->execute(compact('name'));//
+        $sth->execute(compact('name'));
         while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
             return new Vars($res);
         }

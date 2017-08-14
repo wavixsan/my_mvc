@@ -20,10 +20,15 @@ class Validation
     {
         if(is_array($res)){
             foreach($res as $k=>$v){
+                if(!$v){
+                    $res[$k] = false;
+                    continue;
+                }
                 $res[$k] = trim(htmlspecialchars(stripslashes($v)));
             }
             return $res;
         }
+        if(!$res) return false;
         return trim(htmlspecialchars(stripslashes($res)));
     }
 }
