@@ -35,10 +35,13 @@ class BookModel
         return $array;
     }
 
-    public function pageBooks($offset,$count)
+    public function pageBooks($offset,$count,$category)
     {
-        $array = [];
-        $sth = $this->pdo->query("SELECT * FROM book WHERE status = 1 LIMIT {$offset}, {$count}");
+        $array = []; $style='';
+        if($category and $this->testStyle($category)){
+            $style="AND style_id=$category";
+        }
+        $sth = $this->pdo->query("SELECT * FROM book WHERE status = 1 {$style} LIMIT {$offset}, {$count}");
         while ($res = $sth->fetch(\PDO::FETCH_ASSOC)){
             $array[] = (new Vars())->set($res);
         }
@@ -158,9 +161,13 @@ class BookModel
         return false;
     }
 
-    public function countBooks()
+    public function countBooks($category)
     {
-        $sth = $this->pdo->query("SELECT count(id) FROM book WHERE status = 1");
+        $style='';
+        if($category and $this->testStyle($category)){
+            $style="AND style_id=$category";
+        }
+        $sth = $this->pdo->query("SELECT count(id) FROM book WHERE status = 1 $style");
         return $sth->fetchColumn();
     }
 }

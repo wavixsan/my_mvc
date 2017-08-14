@@ -6,16 +6,20 @@ return array(
     "books"=>["book","index","/books.html"],
     "books_page"=>["book","index","/books-page_{page}.html",["page"=>"[0-9]+"]],
     "book_show"=>["book","show","/book-{id}.html",["id"=>"[0-9]+"]],
+    "books_category"=>['book','index','books_{category}',['category'=>'[0-9]+']],
+    "books_category_page"=>['book','index','books_{category}_{page}',['category'=>'[0-9]+','page'=>'[0-9]+']],
 
     "cart"=>['cart','show','/cart'],
     "cart_add_book"=>['cart','addBook','/cart-add-book-{id}/',['id'=>'[0-9]+']],
     "cart_options"=>['cart','options','/cart-book-options-{option}-{id}/',['option'=>'minus|plus|delete','id'=>'[0-9]+']],
 
+    "api_cart_add"=>['api\\cart','add','/api/cart-add-{id}',['id'=>'[0-9]+']],
+
     "names_list"=>["name","index","/names.html"],
     "name_page"=>["name","name","/name-{id}.html",["id"=>"[0-9]+"]],
 
     "login"=>["Security","login","/login.html"],
-    "register"=>['SECURITY',"register",'/register.html'],
+    "register"=>['Security',"register",'/register.html'],
     "logout"=>['security',"logout",'/logout.html'],
 
     "active"=>['security','active','/active-{email}-{code}.html',['email'=>'[a-zA-Z0-9_\-\.\@]+','code'=>'[0-9a-z]+']],
@@ -25,7 +29,7 @@ return array(
 
     /* admin */
     "admin"=>["admin\\default","index","/admin",null,"admin.phtml",["admin\\security","login",'admin_session']],
-    "admin_"=>["admin\\default","PANEL","/admin.html"],
+    "admin_"=>["admin\\default","Panel","/admin.html"],
     "admin_logout" => ["admin\\security","logout","/admin_logout.html"],
 
     "admin_books"=>["admin\\book","index","/admin/book"],

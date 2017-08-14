@@ -39,7 +39,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <?php foreach($this->get('router')->navBar(['Главная'=>"home_","Книги"=>"books",'Корзина <span class="badge">'.$this->cart->amount().'</span>'=>'cart'],true) as $button):?>
+                <?php foreach($this->get('router')->navBar(['Главная'=>"home_","Книги"=>"books",'Корзина <span id="cart" class="badge">'.$this->cart->amount().'</span>'=>'cart'],true) as $button):?>
                     <li <?=($button->active?'class="active"':'')?> ><a href="<?=$button->url?>"><?=$button->name?></a></li>
                 <?php endforeach?>
             </ul>
@@ -89,7 +89,7 @@
 <footer class="footer">
     <div class="container container-footer">
 <!--        <p class="text-muted">Place sticky footer content here.</p>-->
-        <a href="http://corp.wamba.com/ru/test/"><img border="0" src="http://corp.wamba.com/ru/test/widget/?id=147188" /></a>
+<!--        <a href="http://corp.wamba.com/ru/test/"><img border="0" src="http://corp.wamba.com/ru/test/widget/?id=147188" /></a>-->
     </div>
 </footer>
 
@@ -99,5 +99,6 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
+<script src="/js/my_js.js"></script>
 </body>
 </html>

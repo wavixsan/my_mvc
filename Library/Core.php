@@ -54,8 +54,8 @@ class Core
 
     private function controller()
     {
-        $class = "Controller\\".ucfirst($this->upStr(strtolower($this->controller)))."Controller";
-        $method = "action".ucfirst(strtolower($this->action));
+        $class = "Controller\\".ucfirst($this->upStr($this->controller))."Controller";
+        $method = "action".ucfirst($this->action);
         if(!method_exists($class,$method)){
             Error::fatal_error("Core: Нет экшена ('{$this->action}') в контроллере ('{$this->controller}')");
         }

@@ -8,10 +8,19 @@
     <li class="active"><?=$book->title?></li>
 </ol>
 
+<div class="row">
+    <div class="col-lg-3">
+        <img data-src="holder.js/300x200" alt="..." src="/img/small.jpg">
+    </div>
+    <div class="col-lg-9">
+        <h2><?=$book->title?></h2>
+        <h4>
+            <?=$book->price?>$
+            <a class="btn btn-primary" onclick="addCart('<?=$this->get('router')->getUrl('api_cart_add',['id'=>$book->id])?>')">Добавить в корзину</a>
+        </h4>
 
-<?php //var_dump($book);?>
-<div style="padding:0 5px; background: #fcc;">
-<!--    <h2>--><?//=$book->title?><!--</h2>-->
-    <b><?=$book->price?></b>
-    <p><?=$book->description?></p>
+        <p><?=$book->description?></p>
+    </div>
 </div>
+
+

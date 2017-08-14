@@ -113,6 +113,7 @@ class Router
 
     private function setRoute($controller,$action,$url,$params=[],$layout=false,$security=false)
     {
+        if(substr($url,0,1)!='/') $url = '/'.$url;
         if($security and is_array($security)){
             $this->security[$url] = call_user_func_array([$this,'setSecurity'],$security);
             if($layout){
