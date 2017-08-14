@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 03 2017 г., 18:21
+-- Время создания: Авг 14 2017 г., 18:03
 -- Версия сервера: 5.5.53
 -- Версия PHP: 5.6.29
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `my_mvc`
 --
-CREATE DATABASE IF NOT EXISTS `my_mvc` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `my_mvc`;
 
 -- --------------------------------------------------------
 
@@ -53,11 +51,11 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `title`, `price`, `style_id`, `description`, `status`) VALUES
-(403, 'odio curabitur convallis duis', '961.87', 1, 'quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum', 1),
+(403, 'odio curabitur convallis duis', '961.87', 13, 'quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum', 1),
 (404, 'sapien quis libero nullam', '700.99', 5, 'primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac', 0),
 (405, 'platea dictumst', '133.80', 2, 'ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus', 1),
 (406, 'morbi sem', '906.11', 8, NULL, 0),
-(407, 'turpis sed ante', '614.40', 1, NULL, 1),
+(407, 'turpis sed ante', '614.40', 13, NULL, 1),
 (408, 'pellentesque at nulla suspendisse', '320.90', 9, 'congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus', 1),
 (409, 'porta volutpat', '594.52', 4, 'proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo', 1),
 (410, 'elementum nullam varius', '907.18', 4, 'platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum', 0),
@@ -76,22 +74,22 @@ INSERT INTO `book` (`id`, `title`, `price`, `style_id`, `description`, `status`)
 (423, 'lacinia eget tincidunt', '446.83', 8, NULL, 0),
 (424, 'elit ac', '117.73', 12, NULL, 1),
 (425, 'posuere nonummy integer', '658.06', 11, NULL, 0),
-(426, 'scelerisque mauris', '553.07', 1, 'in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet', 0),
+(426, 'scelerisque mauris', '553.07', 13, 'in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet', 0),
 (427, 'et eros vestibulum ac', '834.30', 7, 'eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod', 0),
 (428, 'aliquam lacus morbi quis', '368.11', 2, 'rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula', 0),
 (429, 'vel ipsum praesent blandit', '488.30', 10, 'semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus', 0),
 (430, 'augue vestibulum ante', '733.59', 3, 'in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque', 1),
 (431, 'nullam sit amet turpis', '216.84', 7, 'id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio', 1),
-(432, 'sem praesent', '359.23', 1, 'elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus', 1),
-(433, 'semper porta', '581.77', 1, 'nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit', 0),
+(432, 'sem praesent', '359.23', 13, 'elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus', 1),
+(433, 'semper porta', '581.77', 13, 'nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit', 0),
 (434, 'sed magna', '148.76', 5, 'proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non', 1),
-(435, 'pede lobortis', '953.77', 1, 'sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci', 1),
+(435, 'pede lobortis', '953.77', 13, 'sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci', 1),
 (436, 'molestie nibh in', '928.69', 9, NULL, 0),
 (437, 'diam neque vestibulum eget', '845.32', 7, 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi', 1),
 (438, 'luctus et', '112.73', 3, 'nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus', 0),
-(439, 'pede justo lacinia', '676.16', 1, 'sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus', 0),
+(439, 'pede justo lacinia', '676.16', 13, 'sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus', 0),
 (440, 'metus aenean fermentum', '635.03', 4, 'rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at', 0),
-(441, 'sed sagittis nam congue', '397.15', 1, NULL, 0),
+(441, 'sed sagittis nam congue', '397.15', 13, NULL, 0),
 (442, 'nunc commodo placerat', '116.27', 6, 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit', 0),
 (443, 'non velit donec diam', '275.38', 6, 'amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere', 0),
 (444, 'donec quis', '484.94', 2, 'turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer', 0),
@@ -120,16 +118,16 @@ INSERT INTO `book` (`id`, `title`, `price`, `style_id`, `description`, `status`)
 (467, 'pulvinar', '266.87', 6, NULL, 0),
 (468, 'libero ut massa volutpat', '709.43', 3, 'sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis', 1),
 (469, 'dolor sit amet consectetuer', '144.98', 2, 'magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl', 1),
-(470, 'pede ac', '189.04', 1, 'eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec', 0),
+(470, 'pede ac', '189.04', 13, 'eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec', 0),
 (471, 'montes nascetur ridiculus', '455.81', 3, 'eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis', 0),
 (472, 'ut odio cras', '454.49', 5, 'malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc', 0),
-(473, 'rhoncus', '321.39', 1, NULL, 1),
+(473, 'rhoncus', '321.39', 13, NULL, 1),
 (474, 'lectus', '537.49', 8, 'quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis', 1),
 (475, 'erat', '661.74', 12, 'varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla', 0),
 (476, 'et ultrices posuere', '152.49', 6, NULL, 0),
 (477, 'pellentesque volutpat', '307.09', 7, NULL, 0),
-(478, 'vulputate justo', '632.72', 1, NULL, 1),
-(479, 'orci', '544.90', 1, 'scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus', 1),
+(478, 'vulputate justo', '632.72', 13, NULL, 1),
+(479, 'orci', '544.90', 13, 'scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus', 1),
 (480, 'blandit ultrices', '361.40', 3, 'amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl', 0),
 (481, 'maecenas tristique', '647.87', 5, NULL, 1),
 (482, 'justo eu', '166.38', 4, 'purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis', 0),
@@ -137,7 +135,7 @@ INSERT INTO `book` (`id`, `title`, `price`, `style_id`, `description`, `status`)
 (484, 'ut', '854.93', 10, 'faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna', 1),
 (485, 'volutpat', '278.41', 8, 'justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus', 0),
 (486, 'condimentum id', '674.43', 12, 'elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis', 0),
-(487, 'vivamus in felis', '917.14', 1, 'libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt', 1),
+(487, 'vivamus in felis', '917.14', 13, 'libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt', 1),
 (488, 'ultrices libero non mattis', '219.85', 7, NULL, 1),
 (489, 'nulla', '296.93', 11, 'massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis', 1),
 (490, 'bibendum', '943.31', 9, 'eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu', 1),
@@ -152,19 +150,11 @@ INSERT INTO `book` (`id`, `title`, `price`, `style_id`, `description`, `status`)
 (499, 'donec odio', '846.60', 7, NULL, 1),
 (500, 'sit amet consectetuer adipiscing', '205.90', 9, 'in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam', 0),
 (501, 'maecenas leo odio', '340.82', 10, 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum', 0),
-(502, 'a', '894.47', 3, 'nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac', 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `book_author`
---
-
-CREATE TABLE `book_author` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `author_id` int(10) UNSIGNED NOT NULL,
-  `book_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(502, 'a', '894.47', 3, 'nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac', 1),
+(507, 'Основы взаимодействия', '102.99', 9, 'Равным образом постоянный количественный рост и сфера нашей активности укрепляет нас, в нашем стремлении улучшения новейших вариантов поиска решений.\r\nТоварищи, сложившаяся ситуация ни коим образом не обеспечивает широкому кругу (специалистов) участие в формировании позиций, занимаемых участниками в отношении поставленных задач.\r\nТеперь становится очевидно, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании и анализу необходимых данных для разрешения ситуации в целом.\r\nТем не менее стоит отметить так же, что дальнейшее развитие различных форм деятельности играет важную роль в формировании новейших вариантов поиска решений.', 1),
+(509, 'sdf', '50.00', 1, 'xc', 0),
+(511, 'test new style', '76.00', 1, 'fghjkgfdfghj dsdfghjkl tdsetyuilknbvcddfghj fddfgjkjbvc', 0),
+(512, 'zdfghgfdfgh', '56.00', 1, 'ghjklkgfhj', 0);
 
 -- --------------------------------------------------------
 
@@ -184,8 +174,9 @@ CREATE TABLE `help` (
 --
 
 INSERT INTO `help` (`id`, `name`, `title`, `content`) VALUES
-(1, 'Config/db.php', 'Настройки базы данных', '<h4>Пример:</h4>\r\n<pre>\r\n    return array(\r\n        \'host\'=>\'localhost\',\r\n        \'base\'=>\'my_base\',\r\n        \'user\'=>\'root\',\r\n        \'pass\'=>\'1234\',\r\n    );\r\n</pre>\r\n\r\n<p>\r\n    <b>host</b> - Хост. <br>\r\n    <b>base</b> - Имя базы данных. <br>\r\n    <b>user</b> - Имя пользователя. <br>\r\n    <b>pass</b> - Пароль пользователя. <br>\r\n</p>'),
-(2, 'Config/routes.php', 'Файл роутеров', '<h4>Пример:</h4>\r\n<pre>\r\nreturn array(\r\n    \"<b>Name</b>\"=>[\"<b>Controller</b>\",\"<b>Action</b>\",\"<b>Url</b>\",[\"<b>Params</b>\"],\"<b>Loyout</b>\",[]],\r\n);\r\n</pre>\r\n<p>\r\n    <b>Name</b> - Имя роута. <br>\r\n    <b>Controller</b> - Имя контроллера. <br>\r\n    <b>Action</b> - Имя экшена. <br>\r\n    <b>Url</b> - Url адрес. <br>\r\n    <b>Params</b> - Массив с параметрами. <br>\r\n    <b>Loyout</b> - Отдельный loyout. <br>\r\n</p>\r\n\r\n<br>\r\n<h4>Пример:</h4>\r\n<pre>\r\nreturn array(\r\n    \"default\"=>[\"default\",\"index\",\"/\"],\r\n    \"index\"=>[\"default\",\"index\",\"/index.html\"],\r\n);\r\n</pre>\r\n\r\n<br>\r\n<h4>Пример <small>с параметрами</small>:</h4>\r\n<pre>\r\nreturn array(\r\n    \"books\"=>[\"book\",\"index\",\"/book_page-{page}.html\",[\"page\"=>\"[0-9]+\"]],\r\n    \"book_show\"=>[\"book\",\"show\",\"/book_show-{id}.html\",[\"id\"=>\"[0-9]+\"]],\r\n);\r\n</pre>');
+(1, 'Config/db.php', 'Настройки базы данных', '<h4>Обзор:</h4>\r\n<pre>\r\n    return array(\r\n        \'<b>host</b>\'=>\'localhost\',\r\n        \'<b>base</b>\'=>\'my_base\',\r\n        \'<b>user</b>\'=>\'root\',\r\n        \'<b>pass</b>\'=>\'1234\',\r\n    );\r\n</pre>\r\n\r\n<p>\r\n    <b>host</b> - Хост. <br>\r\n    <b>base</b> - Имя базы данных. <br>\r\n    <b>user</b> - Имя пользователя. <br>\r\n    <b>pass</b> - Пароль пользователя. <br>\r\n</p>'),
+(2, 'Config/routes.php', 'Файл роутеров', '<h4>Обзор:</h4>\r\n<pre>\r\nreturn array(\r\n    \"<b>Name</b>\"=>[\"<b>Controller</b>\",\"<b>Action</b>\",\"<b>Url</b>\",[\"<b>Params</b>\"],\"<b>Loyout</b>\",[\"<b>?</b>\"]],\r\n);\r\n</pre>\r\n<p>\r\n    <b>Name</b> - Имя роута. <br>\r\n    <b>Controller</b> - Имя контроллера. <br>\r\n    <b>Action</b> - Имя экшена. <br>\r\n    <b>Url</b> - Url адрес. <br>\r\n    <b>Params</b> - Массив с параметрами. <br>\r\n    <b>Loyout</b> - Отдельный loyout. <br>\r\n</p>\r\n\r\n<br>\r\n<h4>Пример:</h4>\r\n<pre>\r\nreturn array(\r\n    \"default\"=>[\"default\",\"index\",\"/\"],\r\n    \"index\"=>[\"default\",\"index\",\"/index.html\"],\r\n);\r\n</pre>\r\n\r\n<br>\r\n<h4>Пример <small>с параметрами</small>:</h4>\r\n<pre>\r\nreturn array(\r\n    \"books\"=>[\"book\",\"index\",\"/book_page-{<b>page</b>}.html\",[\"<b>page</b>\"=>\"[0-9]+\"]],\r\n    \"book_show\"=>[\"book\",\"show\",\"/book_show-{<b>id</b>}.html\",[\"<b>id</b>\"=>\"[0-9]+\"]],\r\n);\r\n</pre>\r\n\r\n<br>\r\n<h4>Пример <small>с отдельным loyout</small>:</h4>\r\n<pre>\r\nreturn array(\r\n    \"videos\"=>[\"video\",\"index\",\"<b>/video</b>\",null,\"<b>video_loyout.php</b>\"],\r\n    \"video_show\"=>[\"video\",\"show\",\"<b>/video</b>/show/{id}\",[\"id\"=>\"[0-9]+\"]],\r\n);\r\n</pre>\r\n<p>Если поставить Loyout  на начало пути url <b>/video</b> то <b>/video</b>/show/10  тоже будет с <b>video_loyout.php</b></p>'),
+(3, 'Config/config.php', 'Файл конфигураций', '<h4>Обзор:</h4>\r\n<pre>\r\nreturn array(\r\n    \"<b>Name</b>\"=>\"<b>Value</b>\",\r\n);\r\n</pre>\r\n<p>\r\n    <b>Name</b> - Название конфигурации. <br>\r\n    <b>Value</b> - Значение конфигурации. <br>\r\n</p>\r\n\r\n<br>\r\n<h4>Пример:</h4>\r\n<pre>\r\nreturn array(\r\n    \"errorController\"=>\"default\",\r\n    \"errorAction\"=>\"error\",\r\n    \"layout\" => \'layout.phtml\',\r\n);\r\n</pre>');
 
 -- --------------------------------------------------------
 
@@ -203,7 +194,7 @@ CREATE TABLE `style` (
 --
 
 INSERT INTO `style` (`id`, `title`) VALUES
-(1, 'Baby'),
+(1, 'none'),
 (2, 'Computers'),
 (3, 'Test'),
 (4, 'Outdoors'),
@@ -215,7 +206,7 @@ INSERT INTO `style` (`id`, `title`) VALUES
 (10, 'Games'),
 (11, 'Home'),
 (12, 'Books'),
-(21, 'New style');
+(13, 'Baby');
 
 -- --------------------------------------------------------
 
@@ -261,14 +252,6 @@ ALTER TABLE `book`
   ADD KEY `style_id` (`style_id`);
 
 --
--- Индексы таблицы `book_author`
---
-ALTER TABLE `book_author`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `author_id` (`author_id`,`book_id`),
-  ADD KEY `book_id` (`book_id`);
-
---
 -- Индексы таблицы `help`
 --
 ALTER TABLE `help`
@@ -299,17 +282,17 @@ ALTER TABLE `author`
 -- AUTO_INCREMENT для таблицы `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=503;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=513;
 --
 -- AUTO_INCREMENT для таблицы `help`
 --
 ALTER TABLE `help`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `style`
 --
 ALTER TABLE `style`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT для таблицы `user`
 --
