@@ -22,8 +22,8 @@ return array(
     "register"=>['Security',"register",'/register.html'],
     "logout"=>['security',"logout",'/logout.html'],
 
-    "active"=>['security','active','/active-{email}-{code}.html',['email'=>'[a-zA-Z0-9_\-\.\@]+','code'=>'[0-9a-z]+']],
-    'email'=>['security','email','/email-{email}-{code}.html',['email'=>'[a-zA-Z0-9_\-\.\@]+','code'=>'[0-9a-z]+']],
+    "active"=>['security','active','/active-{code}.html',['code'=>'[0-9a-z]+']],
+    'email'=>['security','email','/email.html'],
 
     "analyzer"=>["analyzer","index","/analyzer"],
 

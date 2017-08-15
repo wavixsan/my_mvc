@@ -21,7 +21,7 @@ class SecurityController extends Controller
             $valid = new Validation();
             $password = $valid->processing($request->post('password'));
             $email = $valid->processing($request->post('email'));
-            if($valid->valid($password) and $valid->valid($email)){
+            if($password and $email){
                 $password = new Password($password);
                 $res = $this->get('model')->get('user')->admin($email,$password);
                 if($res!=null) {

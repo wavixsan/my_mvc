@@ -47,18 +47,19 @@
 <!--            <form class="navbar-form navbar-right">-->
 <!--                <input type="text" class="form-control" placeholder="Search...">-->
 <!--            </form>-->
-
-            <?php if($this->get('session')->hash('user_session')): ?>
-                <div class="navbar-btn navbar-right">
+            <div class="navbar-btn navbar-right">
+                <?php if($this->get('session')->hash('user_session')): ?>
                     <a class="btn btn-primary"><?=$this->get('session')->get('user_session')?></a>
                     <a class="btn btn-danger" href="<?=$this->get('router')->getUrl('logout')?>">Выйти</a>
-                </div>
-            <?php else:?>
-                <div class="navbar-btn navbar-right">
+                <?php elseif($this->cookie->test('login')):?>
+                    <a class="btn btn-primary"><?=$this->cookie->get('login')?></a>
+                    <a class="btn btn-danger" href="<?=$this->get('router')->getUrl('logout')?>">Выйти</a>
+                <?php else:?>
                     <a class="btn btn-success" href="<?=$this->get('router')->getUrl('register')?>">Регистрация</a>
                     <a class="btn btn-primary" href="<?=$this->get('router')->getUrl('login')?>">Войти</a>
-                </div>
-            <?php endif;?>
+                <?php endif;?>
+            </div>
+
 
 
 

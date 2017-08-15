@@ -14,7 +14,7 @@ class UserModel
 {
     use TraitPDO;
 
-    public function find($email,$password)
+    public function login($email,$password)
     {
         $sth = $this->pdo->prepare("SELECT * FROM user WHERE email = :email AND password = :password");
         $sth->execute(compact('email','password'));//
@@ -35,7 +35,14 @@ class UserModel
         $sth->execute(compact('username','email','password','active','admin'));
     }
 
-    public function active($email,$active)
+    public function activeTest($code)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM user WHERE active = :code");
+        $sth->execute(compact('code'));
+        return (bool) $sth->fetch(\PDO::FETCH_ASSOC);
+    }
+
+    public function active($active)
     {
         $sth = $this->pdo->prepare("UPDATE `user` SET `active` = 0 WHERE `user`.`active` = :active");
         $sth->execute(compact('active'));

@@ -16,7 +16,7 @@ class Config
     private $containerPublic = false;
 
     public function get($key=null){
-        if($key==null){
+        if($key===null){
             $object = new config_object();
             foreach(get_object_vars($this) as $k=>$v){
                 $object->$k = $v;

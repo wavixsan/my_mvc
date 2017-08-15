@@ -18,13 +18,3 @@ Error::$fatalErrorMonitor = false;
 echo (new Core())->core();
 
 //Error::status();
-
-
-//доделать регистрацию
-
-
-//будстрап ?
-//доделать админку
-//зделать категории
-
-
